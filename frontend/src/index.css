@@ -1,1 +1,28 @@
 @import "tailwindcss";
+
+* {
+  font-family: 'Inter', sans-serif;
+}
+
+.hero-bg {
+  background-image: linear-gradient(to bottom, rgba(10,15,30,0.75) 0%, rgba(10,15,30,0.5) 100%),
+    url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=80');
+  background-size: cover;
+  background-position: center;
+}
+
+.card-img {
+  transition: transform 0.4s ease;
+}
+.card-img:hover {
+  transform: scale(1.05);
+}
+
+.modal-overlay {
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}

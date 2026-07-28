@@ -1,4 +1,4 @@
-const properties = [
+export const PROPERTIES = [
   {
     id: 1,
     title: 'Luxury Villa in Sandton',
@@ -12,7 +12,7 @@ const properties = [
     location: 'Sandton, Johannesburg',
     description: 'Stunning north-facing villa with open-plan living, chef kitchen, heated pool, and 24-hour security estate.',
     image: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80',
-    agent: { name: 'Sarah Mokoena', phone: '+27 82 111 2233', avatar: 'https://randomuser.me/api/portraits/women/44.jpg' },
+    agent: { name: 'Sarah Mokoena', phone: '+27 82 111 2233', avatar: 'https://i.pravatar.cc/150?img=47' },
   },
   {
     id: 2,
@@ -27,7 +27,7 @@ const properties = [
     location: 'Sea Point, Cape Town',
     description: 'Sleek apartment with panoramic ocean views, secure parking, and access to rooftop pool and gym.',
     image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80',
-    agent: { name: 'James van der Berg', phone: '+27 71 444 5566', avatar: 'https://randomuser.me/api/portraits/men/32.jpg' },
+    agent: { name: 'James van der Berg', phone: '+27 71 444 5566', avatar: 'https://i.pravatar.cc/150?img=12' },
   },
   {
     id: 3,
@@ -42,7 +42,7 @@ const properties = [
     location: 'Umhlanga, Durban',
     description: 'Spacious family home in a sought-after estate with large garden, entertainment area, and solar backup.',
     image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&q=80',
-    agent: { name: 'Priya Naidoo', phone: '+27 83 777 8899', avatar: 'https://randomuser.me/api/portraits/women/68.jpg' },
+    agent: { name: 'Priya Naidoo', phone: '+27 83 777 8899', avatar: 'https://i.pravatar.cc/150?img=25' },
   },
   {
     id: 4,
@@ -57,7 +57,7 @@ const properties = [
     location: 'Maboneng, Johannesburg',
     description: 'Trendy industrial-style loft in the heart of Maboneng Precinct. Walking distance to galleries and restaurants.',
     image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80',
-    agent: { name: 'Thabo Dlamini', phone: '+27 76 222 3344', avatar: 'https://randomuser.me/api/portraits/men/75.jpg' },
+    agent: { name: 'Thabo Dlamini', phone: '+27 76 222 3344', avatar: 'https://i.pravatar.cc/150?img=33' },
   },
   {
     id: 5,
@@ -72,7 +72,7 @@ const properties = [
     location: 'Clifton, Cape Town',
     description: 'Iconic penthouse with direct beach access, wrap-around terrace, and breathtaking Atlantic Ocean views.',
     image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80',
-    agent: { name: 'Sarah Mokoena', phone: '+27 82 111 2233', avatar: 'https://randomuser.me/api/portraits/women/44.jpg' },
+    agent: { name: 'Sarah Mokoena', phone: '+27 82 111 2233', avatar: 'https://i.pravatar.cc/150?img=47' },
   },
   {
     id: 6,
@@ -87,24 +87,36 @@ const properties = [
     location: 'Faerie Glen, Pretoria',
     description: 'Well-maintained townhouse in a secure complex with communal pool, close to top schools and highways.',
     image: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&q=80',
-    agent: { name: 'James van der Berg', phone: '+27 71 444 5566', avatar: 'https://randomuser.me/api/portraits/men/32.jpg' },
+    agent: { name: 'James van der Berg', phone: '+27 71 444 5566', avatar: 'https://i.pravatar.cc/150?img=12' },
+  },
+  {
+    id: 7,
+    title: 'Cluster Home in Fourways',
+    price: 2750000,
+    type: 'sale',
+    status: 'Available',
+    bedrooms: 3,
+    bathrooms: 2,
+    garages: 2,
+    size: 210,
+    location: 'Fourways, Johannesburg',
+    description: 'Modern cluster home in a secure estate with fibre, solar panels, and a private garden.',
+    image: 'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&q=80',
+    agent: { name: 'Priya Naidoo', phone: '+27 83 777 8899', avatar: 'https://i.pravatar.cc/150?img=25' },
+  },
+  {
+    id: 8,
+    title: 'Garden Cottage in Stellenbosch',
+    price: 11000,
+    type: 'rent',
+    status: 'Available',
+    bedrooms: 2,
+    bathrooms: 1,
+    garages: 1,
+    size: 80,
+    location: 'Stellenbosch, Western Cape',
+    description: 'Charming cottage on a wine estate with mountain views, private garden, and pet-friendly grounds.',
+    image: 'https://images.unsplash.com/photo-1449844908441-8829872d2607?w=800&q=80',
+    agent: { name: 'Thabo Dlamini', phone: '+27 76 222 3344', avatar: 'https://i.pravatar.cc/150?img=33' },
   },
 ];
-
-
-const getProperties = (req, res) => {
-  const { type, minPrice, maxPrice } = req.query;
-  let result = properties;
-  if (type) result = result.filter(p => p.type === type);
-  if (minPrice) result = result.filter(p => p.price >= Number(minPrice));
-  if (maxPrice) result = result.filter(p => p.price <= Number(maxPrice));
-  res.json(result);
-};
-
-const getProperty = (req, res) => {
-  const property = properties.find(p => p.id === Number(req.params.id));
-  if (!property) return res.status(404).json({ message: 'Property not found' });
-  res.json(property);
-};
-
-module.exports = { getProperties, getProperty };
