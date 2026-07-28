@@ -1,6 +1,23 @@
+# Dependencies
 node_modules/
+
+# Environment
 .env
-*.log
-.DS_Store
+.env.local
+.env.*.local
+
+# Build output
 dist/
 build/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/

@@ -1,40 +1,64 @@
 # PropConnect
 
-A property connection platform.
+A property connection platform for buying and renting properties.
+
+## Tech Stack
+
+- **Backend** — Node.js, Express 5, Helmet, CORS
+- **Frontend** — React 18, Vite, Tailwind CSS 4
 
 ## Project Structure
 
 ```
 PropConnect/
-├── backend/        # Express.js API server
-│   ├── server.js
+├── backend/
+│   ├── controllers/
+│   │   └── propertyController.js
+│   ├── middleware/
+│   │   └── errorHandler.js
+│   ├── routes/
+│   │   └── properties.js
+│   ├── .env.example
 │   ├── package.json
-│   └── .env.example
-├── frontend/       # Frontend application
-│   └── package.json
-├── package.json    # Root - run both together
-└── .gitignore
+│   └── server.js
+├── frontend/
+│   ├── src/
+│   │   ├── App.jsx
+│   │   ├── index.css
+│   │   └── main.jsx
+│   ├── index.html
+│   ├── package.json
+│   └── vite.config.js
+├── .gitignore
+├── package.json
+└── README.md
 ```
 
 ## Getting Started
 
-### Install dependencies
+### 1. Install dependencies
 ```bash
 npm run install:all
 ```
 
-### Run in development
+### 2. Configure environment
 ```bash
-# Both together
-npm run dev
-
-# Individually
-npm run backend
-npm run frontend
+cp backend/.env.example backend/.env
 ```
 
-### Backend only
+### 3. Run in development
 ```bash
-cd backend
 npm run dev
 ```
+
+- Frontend: http://localhost:5173
+- Backend API: http://localhost:5000
+
+## API Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/health` | Health check |
+| GET | `/api/properties` | List all properties |
+| GET | `/api/properties?type=sale` | Filter by type (`sale` or `rent`) |
+| GET | `/api/properties/:id` | Get single property |
