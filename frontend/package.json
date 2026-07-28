@@ -1,0 +1,11 @@
+{
+  "name": "propconnect-frontend",
+  "version": "1.0.0",
+  "description": "PropConnect frontend",
+  "scripts": {
+    "start": "echo \"Add your frontend start command here\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
